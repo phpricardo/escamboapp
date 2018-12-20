@@ -30,6 +30,7 @@ gem 'devise-i18n'
 gem 'bootstrap_sb_admin_base_v2'
 gem 'rails-assets-bootstrap-css', '3.3.7', source: 'https://rails-assets.org'
 gem 'bootstrap-sass', '3.3.6'
+gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
