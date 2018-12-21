@@ -28,10 +28,13 @@ gem 'rails-i18n'
 gem 'devise'
 gem 'devise-i18n'
 gem 'bootstrap_sb_admin_base_v2'
-gem 'rails-assets-bootstrap-css', '3.3.7', source: 'https://rails-assets.org'
 gem 'bootstrap-sass', '3.3.6'
-gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootbox'
+  gem 'rails-assets-notifyjs'
+  gem 'rails-assets-bootstrap-css', '3.3.7'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -49,6 +52,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'faker'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 

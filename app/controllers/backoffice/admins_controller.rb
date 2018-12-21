@@ -1,5 +1,5 @@
 class Backoffice::AdminsController < BackofficeController
-  before_action :set_admin, only: [:edit, :update]
+  before_action :set_admin, only: [:edit, :update, :destroy]
   
   def index
     @admins = Admin.all
@@ -25,7 +25,7 @@ class Backoffice::AdminsController < BackofficeController
     passwd = params[:admin][:password]
     passwd_confirmation = params[:admin][:password_confirmation]
 
-    if passwrd.blank? && passwd_confirmation.blank?
+    if passwd.blank? && passwd_confirmation.blank?
       params[:admin].delete(:password)
       params[:admin].delete(:password_confirmation)
     end
@@ -37,6 +37,16 @@ class Backoffice::AdminsController < BackofficeController
     end
   end
 
+  def destroy
+    admin_email = @admin.email
+
+    if @admin.destroy
+      redirect_to backoffice_admins_path, notice: "Admin #{admin_email} excluido com sucesso."
+    else
+      render :index
+    end
+  end
+
   private
 
   def set_admin
@@ -44,6 +54,6 @@ class Backoffice::AdminsController < BackofficeController
   end
 
   def params_admin
-    params.require(:admin).permit(:email, :password, :password_confirmation)
+    params.require(:admin).permit(:name, :email, :password, :password_confirmation)
   end
 end
