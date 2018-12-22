@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20181221004528) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
-    t.string   "role"
+    t.integer  "role"
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
